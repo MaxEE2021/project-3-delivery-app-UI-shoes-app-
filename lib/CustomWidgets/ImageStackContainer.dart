@@ -2,7 +2,18 @@
 import 'package:flutter/material.dart';
 
 class MyImageStackWidget extends StatelessWidget {
-  const MyImageStackWidget({Key? key}) : super(key: key);
+  // const MyImageStackWidget({Key? key}) : super(key: key);
+  final String ProductName;
+  final String ProductPrice;
+  final String ProductImg;
+  final Color? MyBtnColor;
+
+  const MyImageStackWidget ({
+    this.ProductName = "productName",
+    this.ProductPrice = "\$ 00.00",
+    this.ProductImg = "https://acortar.link/ArEijZ",
+    this.MyBtnColor = Colors.black
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +26,7 @@ class MyImageStackWidget extends StatelessWidget {
           fit: StackFit.loose,
           alignment: AlignmentDirectional.bottomCenter,
           children: [
-            Image.network("https://acortar.link/ArEijZ"),
+            Image.network(ProductImg),
             Container(
               height: 58,
               color: Color(0x8f151515),
@@ -25,12 +36,13 @@ class MyImageStackWidget extends StatelessWidget {
                 // crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
-                    padding: EdgeInsetsDirectional.only(bottom: 8),
+                    padding: EdgeInsetsDirectional.only(bottom: 8,),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "ProductName",
+                          ProductName,
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -38,7 +50,7 @@ class MyImageStackWidget extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Price",
+                          ProductPrice,
                           style: TextStyle(
                             color: Colors.grey.shade200,
                             fontSize: 11,
@@ -52,6 +64,7 @@ class MyImageStackWidget extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                          primary: MyBtnColor,
                           minimumSize: Size(35, 30)
                         ),
                         onPressed: (){}, 

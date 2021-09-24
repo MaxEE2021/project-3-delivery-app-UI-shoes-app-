@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_store_app/CustomWidgets/CustomBtnTag.dart';
+import 'package:my_store_app/CustomWidgets/CustomCarousel.dart';
 import 'package:my_store_app/CustomWidgets/ImageStackContainer.dart';
 import 'package:my_store_app/Screens/AcountScreen.dart';
 import 'package:my_store_app/Screens/CartScreen.dart';
+import 'package:my_store_app/Screens/LoginScreen.dart';
+
 
 class MyHomeScreen extends StatefulWidget {
   MyHomeScreen({Key? key}) : super(key: key);
@@ -18,13 +23,23 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     MyCartScreen(),
     MyAccountScreen(),
   ];
+  List<String> _AppBarTitles = [
+    "Home",
+    "Cart",
+    "Account",
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(_AppBarTitles[_BotmNavBarCurrentIndex]),
+        backgroundColor: Colors.blue.shade800,
+      ),
+
       body: _BNBIdex[_BotmNavBarCurrentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.blue.shade800,
         onTap: (index){
           setState(() {
             _BotmNavBarCurrentIndex = index;
@@ -63,18 +78,65 @@ class HomePageWidget_screen extends StatefulWidget {
 }
 
 class _HomePageWidgetState extends State<HomePageWidget_screen> {
+  List MyTagList =[
+    MyCustomTagBtn(
+      TagTXT: "New",
+      TagColor: Colors.blue.shade800,
+      MyonPressed: (){print("You pressed tag New");},
+    ),
+    MyCustomTagBtn(
+      TagTXT: "Ladies",
+      TagColor: Colors.blue.shade800,
+      MyonPressed: (){print("You pressed tag Ladies");},
+    ),
+    MyCustomTagBtn(
+      TagTXT: "Kids",
+      TagColor: Colors.blue.shade800,
+      MyonPressed: (){print("You pressed tag Kids");},
+    ),
+    MyCustomTagBtn(
+      TagTXT: "Gentleman",
+      TagColor: Colors.blue.shade800,
+      MyonPressed: (){print("You pressed tag Gentleman");},
+    ),
+    MyCustomTagBtn(
+      TagTXT: "Sports",
+      TagColor: Colors.blue.shade800,
+      MyonPressed: (){print("You pressed tag Sports");},
+    ),
+    MyCustomTagBtn(
+      TagTXT: "Elegant",
+      TagColor: Colors.blue.shade800,
+      MyonPressed: (){print("You pressed tag Elegant");},
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
         children: [
           Container(
-            height: 120,
-            color: Colors.blueGrey,
+            margin: EdgeInsets.only(top: 5),
+            // color: Colors.yellow,
+            child: MyCarouselImageWidget(),
           ),
+
+
+
           Container(
-            height: 120,
-            color: Colors.purple,
+            height: 50,
+            // color: Colors.purple,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: MyTagList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return MyTagList[index];
+              },
+            ),
           ),
+
+
+
           Container(
             height: 298,
             child: GridView.count(
@@ -82,10 +144,22 @@ class _HomePageWidgetState extends State<HomePageWidget_screen> {
               mainAxisSpacing: 4,
               crossAxisCount: 2,
               children: <Widget> [
-                MyImageStackWidget(),
-                MyImageStackWidget(),
-                MyImageStackWidget(),
-                MyImageStackWidget(),
+                MyImageStackWidget(
+                  ProductImg: "https://acortar.link/CuE9Hb",
+                  MyBtnColor: Colors.blue.shade800,
+                ),
+                MyImageStackWidget(
+                  ProductImg: "https://acortar.link/sE6MAf",
+                  MyBtnColor: Colors.blue.shade800,
+                ),
+                MyImageStackWidget(
+                  ProductImg: "https://acortar.link/21EZel",
+                  MyBtnColor: Colors.blue.shade800,
+                ),
+                MyImageStackWidget(
+                  ProductImg: "https://acortar.link/rYmTpG",
+                  MyBtnColor: Colors.blue.shade800,
+                ),
               ],
             ),
           ),
@@ -94,6 +168,4 @@ class _HomePageWidgetState extends State<HomePageWidget_screen> {
   }
 }
 
-// height: 160,
-//         width: 220,
-//          MyImageStackWidget(),
+
