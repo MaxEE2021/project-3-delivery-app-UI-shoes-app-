@@ -6,7 +6,7 @@ final List<String> imgList = [
   "https://acortar.link/4Y2rjj",
   "https://acortar.link/TeWS51",
   "https://acortar.link/3xMWy1",
-  "https://acortar.link/i8Ie77",
+  "https://acortar.link/CuE9Hb",
 ];
 
 final List<Widget> imageSliders = imgList

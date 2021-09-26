@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 // import 'package:get/get.dart';
 import 'package:my_store_app/CustomWidgets/CustomButton.dart';
 import 'package:my_store_app/CustomWidgets/CustomTextField.dart';
@@ -19,113 +20,113 @@ class MyNewAccountScreen extends StatelessWidget {
         ),
         elevation: 0,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 18, right: 18,),
-          child: ListView(
-            children: [
-              Container(    //image an black title
-              // color: Colors.deepPurple,
-              height: 200, 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Image.network(
-                      "https://acortar.link/ArEijZ",
-                      fit: BoxFit.cover,
-                    ),
+      body: Column(
+        children: [
+          Container(
+            height: 200,
+            // color: Colors.blueGrey,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Image.network(
+                    "https://acortar.link/ArEijZ",
                   ),
-                  Text(
-                    "MyStore.com",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                    ),
-                  ),
-                ],
-              ), 
-              ),
-              Container(
-                height: 280,
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Container( //email, pasword, login_button
-                      padding: EdgeInsets.symmetric(vertical: 8,),
-                        // color: Colors.amber,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            MyCustomTextField(
-                              hintText: 'Full Name',
-                              TxtOrEmail: TextInputType.name,
-                            ),
-                            MyCustomTextField(
-                              hintText: 'Email Address',
-                              TxtOrEmail: TextInputType.emailAddress,
-                            ),
-                            MyCustomTextField(
-                              hintText: 'Password',
-                              isPassWord: true,
-                            ),
-                            MyCustomButton(
-                              MyString: "Register",
-                              Mycolor: Colors.black87,
-                            ),
-                    
-                            
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
-              ),
-              Container( // createNewAccountBtn and socialImagesbtns
-              child: Column(
+              ],
+            ),
+          ),
+
+
+
+
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal:15),
+              child: ListView(
                 children: [
-                  TextButton(
-                    onPressed: (){
-                      print("AHnA btn Was Pressed");
-                      // Get.to(MyNewAccountScreen());
-                    },
-                    child: Text(
-                      "Already have an account ?",
+
+                  MyCustomTextField(
+                          hintText: 'Name',
+                          myIcon: Icons.person,
+                          TxtOrEmail: TextInputType.text,
+                          // Mylabel_helptxt: "Email address",
+                        ),
+                  MyCustomTextField(
+                          hintText: 'Email Address',
+                          myIcon: Icons.email_outlined,
+                          TxtOrEmail: TextInputType.emailAddress,
+                          // Mylabel_helptxt: "Email address",
+                        ),
+                  MyCustomTextField(
+                          hintText: 'Pasword',
+                          myIcon: Icons.lock_outlined,
+                          TxtOrEmail: TextInputType.text,
+                          isPassWord: true,
+                          // Mylabel_helptxt: "Mobile Number",
+                          // Mylabel_helptxtColor: Colors.green,
+                        ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: MyCustomButton(
+                      MyString: "Register",
+                      Mycolor: Colors.black,
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 100),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                    Container(
+                      // color: Colors.red,
+                    // login  and socialImagesbtns
+                    child: Column(
                       children: [
-                        Container(
-                          height: 55,
-                          // color: Colors.red,
-                          child: TextButton(
-                            onPressed: (){print("Facebook was pressed");},
-                            child: Image.network("https://acortar.link/Cmpv9S"),
+                        TextButton(
+                          onPressed: () {
+                            print("AHnA pressed");
+                          },
+                          child: Text(
+                            "Already Have an account?",
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          // color: Colors.red,
-                          child: TextButton(
-                            onPressed: (){print("Google was pressed");},
-                            child: Image.network("https://acortar.link/gAKnvo"),
-                          ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              // color: Colors.teal,
+                              height: 55,
+                              child: TextButton(
+                                child: Image.network(
+                                  "https://acortar.link/Cmpv9S",
+                                ),
+                                onPressed: 
+                                () => print("Facebook Was Pressed"),
+                              ),
+                            ),
+                            Container(
+                              // color: Colors.blue,
+                              height: 50,
+                              child: TextButton(
+                                child: Image.network(
+                                  "https://acortar.link/8STj9D",
+                                ),
+                                onPressed: 
+                                () => print("Google Was Pressed"),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ),
+              
+              
+                  
                 ],
               ),
-
-              ),
-            ],
+            ),
           ),
-        ),
+          
+        ],
       ),
     );
   }

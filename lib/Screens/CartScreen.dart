@@ -82,7 +82,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                         child: Text(
                           "Change",
                           style: TextStyle(
-                            color: Colors.blueGrey,
+                            color: Colors.blue.shade800,
                             fontSize: 16,
                           ),
                         ),
@@ -100,7 +100,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Delivery Address",
+                              "Payment Method",
                               style: TextStyle(
                                 color: Colors.black,
                                 // fontWeight: FontWeight.bold,
@@ -108,7 +108,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                               ),
                             ),
                             Text(
-                              "Direction ckdlkds",
+                              "COD",
                               style: TextStyle(
                                 color: Colors.grey.shade800,
                                 fontSize: 14,
@@ -122,7 +122,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                         child: Text(
                           "Change",
                           style: TextStyle(
-                            color: Colors.blueGrey,
+                            color: Colors.blue.shade800,
                             fontSize: 16,
                           ),
                         ),

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_store_app/Screens/InnerScreens/EditProfileScreen.dart';
+import 'package:my_store_app/Screens/InnerScreens/ManageAdressesScreen.dart';
 import 'package:my_store_app/Screens/InnerScreens/ManageOrdersScreen.dart';
 
 class MyAccountScreen extends StatefulWidget {
@@ -84,7 +85,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                   width: 60,
                   height: 60,
                   // color: Colors.redAccent,
-                  child: Icon(Icons.alarm_add ,size: 35,),
+                  child: Icon(Icons.notifications_active ,size: 35,),
                 ),
                 Expanded(
                   child: Container(
@@ -199,7 +200,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "My address",
+                          "My addresses",
                           style: TextStyle(
                             color: Colors.black
                           ),
@@ -221,7 +222,10 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                   height: 40,
                   // color: Colors.redAccent,
                   child: IconButton(
-                    onPressed: (){}, 
+                    onPressed: (){
+                      print("Manage Orders pressed");
+                      Get.to(() => MyManageAddressesScreen());
+                      }, 
                     icon: Icon(Icons.arrow_forward)
                   ),
                 ),

@@ -13,11 +13,36 @@ class MyManageOrderScreen extends StatefulWidget {
 class _MyManageOrderScreenState extends State<MyManageOrderScreen> {
 
    List<Widget> _myItemsWidgetList = [
-    ItemOrderWidget(),
-    ItemOrderWidget(),
-    ItemOrderWidget(),
-    ItemOrderWidget(),
-    ItemOrderWidget(),
+    ItemOrderWidget(
+      MyOrderID: "#F45G6SDGF16D5G",
+      MyOrderDate: "04-JUN-2021",
+      MyOrderDetail: "N° items - \$ total",
+      MyOrderStatus: "COMPLETED",
+    ),
+    ItemOrderWidget(
+      MyOrderID: "#sd54f65ds4fs5d",
+      MyOrderDate: "24-OCT-2020",
+      MyOrderDetail: "N° items - \$ total",
+      MyOrderStatus: "COMPLETED",
+    ),
+    ItemOrderWidget(
+      MyOrderID: "#F45D64FS6DF1S65FS",
+      MyOrderDate: "16-SEP-2021",
+      MyOrderDetail: "N° items - \$ total",
+      MyOrderStatus: "IN PROCESS",
+    ),
+    ItemOrderWidget(
+      MyOrderID: "#DAFD4FS6AFDS464",
+      MyOrderDate: "04-JUN-2021",
+      MyOrderDetail: "N° items - \$ total",
+      MyOrderStatus: "IN PROCESS",
+    ),
+    ItemOrderWidget(
+      MyOrderID: "#DAFD4FS6AFDS464",
+      MyOrderDate: "04-JUN-2021",
+      MyOrderDetail: "N° items - \$ total",
+      MyOrderStatus: "COMPLETED",
+    ),
   
   ];
 
@@ -25,7 +50,8 @@ class _MyManageOrderScreenState extends State<MyManageOrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.blue.shade800,
+        title: Text("Manage Orders"),
       ),
       body: Padding(
         padding: EdgeInsets.all(10),

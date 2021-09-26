@@ -5,10 +5,12 @@ class MyCustomButton extends StatelessWidget {
   // const MyCustomButton({Key? key}) : super(key: key);
   final Color Mycolor;
   final String MyString;
+  final VoidCallback? MyOnpreessed;
 
   const MyCustomButton ({
     this.Mycolor=Colors.green,
     this.MyString="Button",
+    this.MyOnpreessed,
 
   });
 
@@ -23,7 +25,7 @@ class MyCustomButton extends StatelessWidget {
                                 style: ElevatedButton.styleFrom(
                                   primary: Mycolor,
                                 ),
-                                onPressed: (){},
+                                onPressed: MyOnpreessed == null ? (){}:MyOnpreessed,
                                 child: Text(
                                   MyString,
                                   style: TextStyle(

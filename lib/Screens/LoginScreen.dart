@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_store_app/CustomWidgets/CustomButton.dart';
 import 'package:my_store_app/CustomWidgets/CustomTextField.dart';
+import 'package:my_store_app/Screens/HomeScreen.dart';
 import 'package:my_store_app/Screens/NewAccountScreen.dart';
 
 class LogIn_Screen extends StatefulWidget {
@@ -13,6 +14,8 @@ class LogIn_Screen extends StatefulWidget {
 }
 
 class _LogIn_ScreenState extends State<LogIn_Screen> {
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,108 +29,9 @@ class _LogIn_ScreenState extends State<LogIn_Screen> {
         ),
         elevation: 0,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 18, right: 18,),
-          child: ListView(
-            children: [
-              Container(    //image an black title
-              // color: Colors.deepPurple,
-              height: 200, 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Image.network(
-                      "https://acortar.link/ArEijZ",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Text(
-                    "MyStore.com",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                    ),
-                  ),
-                ],
-              ), 
-              ),
-              Container(
-                height: 230,
-                child: Expanded(
-                  child: Container( //email, pasword, login_button
-                  padding: EdgeInsets.symmetric(vertical: 8,),
-                    // color: Colors.amber,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        MyCustomTextField(
-                          hintText: 'Email Address',
-                          TxtOrEmail: TextInputType.emailAddress,
-                          myIcon: Icons.email_outlined
-                        ),
-                        MyCustomTextField(
-                          hintText: 'Password',
-                          isPassWord: true,
-                          myIcon: Icons.lock_outline_rounded
-                        ),
-                        MyCustomButton(
-                          MyString: "Login",
-                          Mycolor: Colors.black87,
-                        ),
-                
-                        
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Container( // createNewAccountBtn and socialImagesbtns
-              child: Column(
-                children: [
-                  TextButton(
-                    onPressed: (){
-                      print("New Account created");
-                      Get.to(() => MyNewAccountScreen());
-                    },
-                    child: Text(
-                      "Create New Account",
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 100),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          height: 55,
-                          // color: Colors.red,
-                          child: TextButton(
-                            onPressed: (){print("Facebook was pressed");},
-                            child: Image.network("https://acortar.link/Cmpv9S"),
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          // color: Colors.red,
-                          child: TextButton(
-                            onPressed: (){print("Google was pressed");},
-                            child: Image.network("https://acortar.link/gAKnvo"),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-
-              ),
-            ],
-          ),
-        ),
-      ),
+      body: MyLogInPage(),
+  
+      
     );
   }
 }
@@ -138,3 +42,122 @@ class _LogIn_ScreenState extends State<LogIn_Screen> {
 // https://acortar.link/Cmpv9S     icon facebook
 // https://acortar.link/gAKnvo    googl
 // https://acortar.link/8STj9D      googl
+
+class MyLogInPage extends StatefulWidget {
+  MyLogInPage({Key? key}) : super(key: key);
+
+  @override
+  _MyLogInPageState createState() => _MyLogInPageState();
+}
+
+class _MyLogInPageState extends State<MyLogInPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        children: [
+          Container(
+            height: 200,
+            // color: Colors.blueGrey,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Image.network(
+                    "https://acortar.link/ArEijZ",
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+
+
+
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal:15),
+              child: ListView(
+                children: [
+
+                  MyCustomTextField(
+                          hintText: 'Email Address',
+                          myIcon: Icons.email_outlined,
+                          TxtOrEmail: TextInputType.emailAddress,
+                          // Mylabel_helptxt: "Email address",
+                        ),
+                  MyCustomTextField(
+                          hintText: 'Pasword',
+                          myIcon: Icons.lock_outlined,
+                          TxtOrEmail: TextInputType.text,
+                          isPassWord: true,
+                          // Mylabel_helptxt: "Mobile Number",
+                          // Mylabel_helptxtColor: Colors.green,
+                        ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: MyCustomButton(
+                      MyString: "Login",
+                      Mycolor: Colors.black,
+                      MyOnpreessed: (){
+                        Get.to(() => MyHomeScreen());
+                      },
+                    ),
+                  ),
+
+                    Container(
+                      // color: Colors.red,
+                    // login  and socialImagesbtns
+                    child: Column(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            print("CreateNewAcount Pressed");
+                            Get.to(() => MyNewAccountScreen());
+                          },
+                          child: Text(
+                            "Create New Account",
+                          ),
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              // color: Colors.teal,
+                              height: 55,
+                              child: TextButton(
+                                child: Image.network(
+                                  "https://acortar.link/Cmpv9S",
+                                ),
+                                onPressed: 
+                                () => print("Facebook Was Pressed"),
+                              ),
+                            ),
+                            Container(
+                              // color: Colors.blue,
+                              height: 50,
+                              child: TextButton(
+                                child: Image.network(
+                                  "https://acortar.link/8STj9D",
+                                ),
+                                onPressed: 
+                                () => print("Google Was Pressed"),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+              
+              
+                  
+                ],
+              ),
+            ),
+          ),
+          
+        ],
+      );
+  }
+}

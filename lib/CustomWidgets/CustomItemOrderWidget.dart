@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_store_app/Screens/InnerScreens/ViewOrderPage.dart';
 
 
 class ItemOrderWidget extends StatelessWidget {
-  const ItemOrderWidget({Key? key}) : super(key: key);
+  // const ItemOrderWidget({Key? key}) : super(key: key);
+
+  final String MyOrderID;
+  final String MyOrderDate;
+  final String MyOrderDetail;
+  final String MyOrderStatus;
+
+  const ItemOrderWidget ({
+    this.MyOrderID="#5465165160",
+    this.MyOrderDate="04-Jun-2021",
+    this.MyOrderDetail="N° items - \$ total",
+    this.MyOrderStatus="COMPLETED",
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +24,7 @@ class ItemOrderWidget extends StatelessWidget {
       // color: Colors.amber,
       margin: EdgeInsets.symmetric(vertical: 2),
       child: TextButton(
-        onPressed: (){},
+        onPressed: () => Get.to(() => MyViewOrderPage()),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -18,7 +32,7 @@ class ItemOrderWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    "#8d85fhdk8785shfks",
+                    MyOrderID,
                     style: TextStyle(
                       fontWeight: FontWeight.bold
                     ),
@@ -29,9 +43,9 @@ class ItemOrderWidget extends StatelessWidget {
                   // color: Colors.amber,
                   width: 100,
                   child: Text(
-                    "COMPLETED",
+                    MyOrderStatus,
                     style: TextStyle(
-                      color: Colors.black,
+                      color: MyOrderStatus=="COMPLETED" ? Colors.green:Colors.black ,
                     ),
                   ),
                 )
@@ -41,13 +55,13 @@ class ItemOrderWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "04-june-2021",
+                  MyOrderDate,
                   style: TextStyle(
                     color: Colors.grey.shade700
                   ),
                 ),
                 Text(
-                  "N° items - total",
+                  MyOrderDetail,
                   style: TextStyle(
                     color: Colors.grey.shade700
                   ),

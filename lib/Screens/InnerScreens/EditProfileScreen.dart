@@ -21,90 +21,88 @@ class _MyEditProfileScreenState extends State<MyEditProfileScreen> {
         title: Text(
           "Edit Profile",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         elevation: 0,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 18, right: 18,),
-          child: ListView(
-            children: [
-              Container(    //image an black title
-              // color: Colors.deepPurple,
-              height: 150, 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+      body: Column(
+        children: [
+          Container(
+            height: 200,
+            // color: Colors.blueGrey,
+            child: Center(
+              child: CircleAvatar(
+                radius: 70,
+                backgroundImage: NetworkImage("https://acortar.link/UBpmfw"),
+              ),
+            ),
+          ),
+
+
+
+
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal:15),
+              child: ListView(
                 children: [
-                  Expanded(
-                    child: CircleAvatar(
-                      radius: 65,
-                      backgroundImage: NetworkImage("https://acortar.link/UBpmfw"),
+
+                  MyCustomTextField(
+                          hintText: 'Name',
+                          myIcon: Icons.person,
+                          TxtOrEmail: TextInputType.emailAddress,
+                          // Mylabel_helptxt: "Name", 
+                        ),
+                  MyCustomTextField(
+                          hintText: 'Email Address',
+                          myIcon: Icons.email_outlined,
+                          TxtOrEmail: TextInputType.emailAddress,
+                          // Mylabel_helptxt: "Email address",
+                        ),
+                  MyCustomTextField(
+                          hintText: 'Phone Number',
+                          myIcon: Icons.phone,
+                          TxtOrEmail: TextInputType.number,
+                          // Mylabel_helptxt: "Mobile Number",
+                          // Mylabel_helptxtColor: Colors.green,
+                        ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: MyCustomButton(
+                      MyString: "Save Changes",
+                      Mycolor: Colors.black,
                     ),
                   ),
-                ],
-              ), 
-              ),
-              Container(
-                // color: Colors.brown,
-                height: 320,
-                child: Expanded(
-                  child: Container( //email, pasword, login_button
-                  padding: EdgeInsets.symmetric(vertical: 8,),
-                    // color: Colors.amber,
+
+                    Container(
+                    // createNewAccountBtn and socialImagesbtns
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        MyCustomTextField(
-                          hintText: 'Full Name',
-                          TxtOrEmail: TextInputType.text,
-                          myIcon: Icons.person
+                        TextButton(
+                          onPressed: () {
+                            print("You Log Out");
+                            Get.to(() => LogIn_Screen());
+                          },
+                          child: Text(
+                            "Log out",
+                          ),
                         ),
-                        MyCustomTextField(
-                          hintText: 'Email Address',
-                          TxtOrEmail: TextInputType.emailAddress,
-                          myIcon: Icons.email_outlined
-                        ),
-                        MyCustomTextField(
-                          hintText: 'Mobile Number',
-                          TxtOrEmail: TextInputType.number,
-                          myIcon: Icons.phone
-                        ),
-                        
-
-
-                        MyCustomButton(
-                          MyString: "SaveChanges",
-                          Mycolor: Colors.black87,
-                        ),
-                
-                        
                       ],
                     ),
                   ),
-                ),
-              ),
-              Container( // createNewAccountBtn and socialImagesbtns
-              child: Column(
-                children: [
-                  TextButton(
-                    onPressed: (){
-                      print("You Log Out");
-                      Get.to(() => LogIn_Screen());
-                    },
-                    child: Text(
-                      "Log out",
-                    ),
-                  ),
+              
+              
+                  
                 ],
               ),
-
-              ),
-            ],
+            ),
           ),
-        ),
+          
+        ],
       ),
+      
     );
   }
 }
