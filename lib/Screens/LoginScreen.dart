@@ -22,7 +22,7 @@ class _LogIn_ScreenState extends State<LogIn_Screen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-          "MyStore",
+          "Max's Shoe Store",
           style: TextStyle(
             color: Colors.black,
           ),
